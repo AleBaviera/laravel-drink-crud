@@ -8,8 +8,9 @@ use App\DrinksModel;
 class DrinksController extends Controller
 {
   public function getDrinks(){
+    $title = 'bevande';
     $drinks = DrinksModel::all();
 
-    return view('drinks-cubes', compact('drinks'));
+    return view('drinks-cubes', compact('drinks','title'));
   }
 }

@@ -13,10 +13,11 @@
 
     </head>
     <body>
+      <div class="container">
         <header>
-
+          <h1>Header's {{$title}}</h1>
         </header>
-        <div class="container">
+
           <?php foreach ($drinks as $drink): ?>
             <div class="drinks-box">
               <p>{{$drink -> tipo}}</p><br>
@@ -26,8 +27,10 @@
             </div>
           <?php endforeach; ?>
 
-        </div>
+
         <footer>
+          <h1>Footer's {{$title}}</h1>
         </footer>
+      </div>
     </body>
 </html>
