@@ -25,9 +25,18 @@
               <p>{{$drink -> prezzo}}</p><br>
               <p>{{$drink -> scadenza}}</p><br>
             </div>
+
           <?php endforeach; ?>
 
-
+          <div class="drinks-box">
+            <p>min price: {{$min}}</p>
+          </div>
+          <div class="drinks-box">
+            <p>max price: {{$max}}</p>
+          </div>
+          <div class="drinks-box">
+            <p>avg price: {{$avg}}</p>
+          </div>
         <footer>
           <h1>Footer's {{$title}}</h1>
         </footer>
