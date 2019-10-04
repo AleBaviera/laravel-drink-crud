@@ -3,15 +3,15 @@
 use Illuminate\Database\Seeder;
 use App\Drink;
 
-class DatabaseSeeder extends Seeder
+class DrinksSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-       $this->call(DrinksSeeder::class);
+      factory(Drink::class,15)->create();
     }
 }

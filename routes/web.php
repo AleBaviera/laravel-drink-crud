@@ -1,3 +1,3 @@
 <?php
 
-Route::get('/cube/drink', 'DrinksController@getDrinks');
+Route::get('/cube/drink', 'DrinkController@index')->name('drinkIndex');
