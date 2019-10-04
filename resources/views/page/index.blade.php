@@ -1,12 +1,13 @@
 @extends('layout.drinks')
 
 @section('content')
+<a href="{{route('drinkCreate')}}">ADD</a>
 <?php foreach ($drinks as $drink): ?>
   <div class="drinks-box">
-    <p>{{$drink -> type}}</p>
-    <p>{{$drink -> mark}}</p>
-    <p>{{$drink -> price}}</p>
-    <p>{{$drink -> exp}}</p>
+    <p>name: {{$drink -> name}}</p>
+    <p>mark: {{$drink -> mark}}</p>
+    <p>price: {{$drink -> price}}</p>
+    <p>exp: {{$drink -> exp}}</p>
   </div>
 
 <?php endforeach; ?>

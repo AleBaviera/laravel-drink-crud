@@ -15,7 +15,6 @@ class DrinkController extends Controller
     public function index()
     {
       $title = 'Drinks';
-
       $min= Drink::min('price');
       $max= Drink::max('price');
       $avg= Drink::avg('price');
@@ -31,7 +30,11 @@ class DrinkController extends Controller
      */
     public function create()
     {
-        //
+      $title = 'Drinks';
+      $min= Drink::min('price');
+      $max= Drink::max('price');
+      $avg= Drink::avg('price');
+      return view('page.create', compact('title', 'min', 'max', 'avg'));
     }
 
     /**
@@ -42,7 +45,16 @@ class DrinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+      $validateData = $request -> validate([
+        'name'=> 'required',
+        'mark'=> 'required',
+        'price'=> 'required',
+        'exp'=> 'required'
+      ]);
+      Drink::create($validateData);
+
+      return redirect('/cube/drink');
     }
 
     /**
