@@ -31,10 +31,8 @@ class DrinkController extends Controller
     public function create()
     {
       $title = 'Drinks';
-      $min= Drink::min('price');
-      $max= Drink::max('price');
-      $avg= Drink::avg('price');
-      return view('page.create', compact('title', 'min', 'max', 'avg'));
+
+      return view('page.create', compact('title'));
     }
 
     /**
@@ -45,7 +43,7 @@ class DrinkController extends Controller
      */
     public function store(Request $request)
     {
-      
+
       $validateData = $request -> validate([
         'name'=> 'required',
         'mark'=> 'required',
@@ -65,7 +63,9 @@ class DrinkController extends Controller
      */
     public function show($id)
     {
-        //
+      $drink = Drink::findOrFail($id);
+      $title = 'Drinks';
+      return view('page.show', compact('drink', 'title'));
     }
 
     /**
@@ -76,7 +76,9 @@ class DrinkController extends Controller
      */
     public function edit($id)
     {
-        //
+      $drink = Drink::findOrFail($id);
+      $title = 'Drinks';
+      return view('page.update', compact('drink', 'title'));
     }
 
     /**
@@ -88,7 +90,14 @@ class DrinkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $validateData = $request -> validate([
+        'name'=> 'required',
+        'mark'=> 'required',
+        'price'=> 'required',
+        'exp'=> 'required'
+      ]);
+      Drink::whereId($id)-> update($validateData);
+      return redirect('/cube/drink');
     }
 
     /**
@@ -99,6 +108,8 @@ class DrinkController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $drink = Drink::findOrFail($id);
+      $drink -> delete();
+      return redirect('/cube/drink');
     }
 }

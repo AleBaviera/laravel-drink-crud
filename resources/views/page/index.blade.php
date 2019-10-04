@@ -8,6 +8,9 @@
     <p>mark: {{$drink -> mark}}</p>
     <p>price: {{$drink -> price}}</p>
     <p>exp: {{$drink -> exp}}</p>
+    <a href="{{route('drinkDelete', $drink -> id)}}">DELETE</a>
+    <a href="{{route('drinkShow', $drink -> id)}}">SHOW</a>
+    <a href="{{route('drinkEdit', $drink -> id)}}">UPDATE</a>
   </div>
 
 <?php endforeach; ?>
